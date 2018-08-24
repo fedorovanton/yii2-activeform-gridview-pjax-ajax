@@ -8,20 +8,33 @@
 4. Зарегестрировать (в _search.php) JS скрипт. Здесь #gridview-objects - это ID обернутого Pjax для GridView в файле index.php :
 ```
 $this->registerJs('
-    // Прикрепляет обновление контента после завершения работы виджета Pjax 
+    /**
+     * Прикрепляет обновление контента после завершения работы виджета Pjax
+     */
     $("#new-search-objects").on("pjax:end", function(ev) {
-         $.pjax.reload({container:"#gridview-objects"});
+        $.pjax.reload({container:"#gridview-objects"});
     });
-    
-    // Отправки submit
+
+    /**
+     * Отправки submit
+     */
     function submitSearch() {
         $("#form-object-search").submit();
     }
-    
-    // Изменили список: Статус
-    $(".object-search").on("change", "#objectsearch-status", function() {
+
+    /**
+     * Изменили любой список в форме
+     */
+    $(".object-search").on("change", "#form-object-search select", function() {
         submitSearch();
-    });  
+    });
+
+    /**
+     * Изменили любое текстовое поле в форме
+     */ 
+    $(".object-search").on("change", "#form-object-search input", function() {
+        submitSearch();
+    }); 
 ');
 ```
 5. В index.php обернуть Pjax'ом GridView. Для Pjax параметры ['id' => 'gridview-objects'].
