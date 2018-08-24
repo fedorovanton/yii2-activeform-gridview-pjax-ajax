@@ -25,49 +25,13 @@ $this->registerJs('
         $("#form-object-search").submit();
     }
     
-    // Изменили список: Статус
-    $(".object-search").on("change", "#objectsearch-status", function() {
+    // Изменили любой список в форме
+    $(".object-search").on("change", "#form-object-search select", function() {
         submitSearch();
     });
     
-    // Изменили список: Тип объявления
-    $(".object-search").on("change", "#objectsearch-operationtype", function() {
-        submitSearch();
-    });
-    
-    // Изменили список: Тип недвижимости
-    $(".object-search").on("change", "#objectsearch-category", function() {
-        submitSearch();
-    });
-    
-    // Изменили поле: Количество комнат
-    $(".object-search").on("change", "#objectsearch-rooms", function() {
-        submitSearch();
-    });
-    
-    // Изменили список: Город
-    $(".object-search").on("change", "#objectsearch-city", function() {
-        submitSearch();
-    });
-    
-    // Изменили список: Менеджеры
-    $(".object-search").on("change", "#objectsearch-user_id", function() {
-        submitSearch();
-    });
-    
-    // Изменили поле: Стоимость/Цена от
-    $(".object-search").on("change", "#objectsearch-min_price", function() {
-        submitSearch();
-    });
-    
-    // Изменили поле: Стоимость/Цена до
-    $(".object-search").on("change", "#objectsearch-max_price", function() {
-        submitSearch();
-    });
-    
-  
-    // Изменили список: Статус
-    $(".object-search").on("change", "#objectsearch-status", function() {
+    // Изменили любое текстовое поле в форме
+    $(".object-search").on("change", "#form-object-search input", function() {
         submitSearch();
     });
     
